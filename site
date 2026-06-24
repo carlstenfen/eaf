@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EFA Construtora — obras residenciais, comerciais e reformas com planejamento, transparência e execução responsável.">
+  <meta name="theme-color" content="#0d2b4c">
+  <meta property="og:title" content="EFA Construtora | Construir com clareza">
+  <meta property="og:description" content="Projetos e obras com planejamento, acompanhamento e entrega responsável.">
+  <meta property="og:type" content="website">
+  <title>EFA Construtora | Construir com clareza</title>
+
+  <!--
+    SITE SINGLE-PAGE — EFA CONSTRUTORA
+    Antes de publicar, altere os dados no objeto CONTACT, ao final do arquivo:
+    - whatsapp
+    - phoneDisplay
+    - email
+    - address
+    - instagram
+    As imagens de portfólio são ilustrativas e devem ser substituídas por obras reais da EFA.
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #10283d;
+      --ink-strong: #081a2b;
+      --navy: #0d2b4c;
+      --blue: #1f5f98;
+      --sky: #eaf2f8;
+      --line: #d9e2e9;
+      --paper: #f9fbfc;
+      --white: #ffffff;
+      --sand: #c99155;
+      --sand-dark: #9d6634;
+      --muted: #617386;
+      --success: #1b7d57;
+      --shadow: 0 18px 45px rgba(7, 26, 43, .12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --container: min(1160px, calc(100% - 40px));
+      --header-h: 82px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    body.menu-open, body.modal-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; width: 100%; height: auto; }
+    :focus-visible { outline: 3px solid rgba(201, 145, 85, .7); outline-offset: 3px; }
+    .container { width: var(--container); margin-inline: auto; }
+    .section { padding: 104px 0; }
+    .section--soft { background: var(--sky); }
+    .section--dark { background: var(--ink-strong); color: var(--white); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 15px;
+      color: var(--sand-dark);
+      font-family: "Manrope", sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+    .section--dark .eyebrow { color: #e1ae72; }
+    h1, h2, h3, h4 { margin: 0; font-family: "Manrope", sans-serif; line-height: 1.08; }
+    h1 { max-width: 850px; font-size: clamp(2.72rem, 6.2vw, 5.7rem); font-weight: 800; letter-spacing: -.065em; }
+    h2 { font-size: clamp(2rem, 3.6vw, 3.45rem); font-weight: 800; letter-spacing: -.05em; }
+    h3 { font-size: 1.24rem; letter-spacing: -.03em; }
+    p { margin: 0; }
+    .lead { max-width: 650px; color: var(--muted); font-size: 1.08rem; line-height: 1.72; }
+    .section--dark .lead { color: #c7d4df; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 46px; }
+    .section-head > div { max-width: 690px; }
+    .section-head .lead { margin-top: 18px; }
+
+    /* Buttons */
+    .btn {
+      min-height: 51px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-family: "Manrope", sans-serif;
+      font-size: .88rem;
+      font-weight: 800;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease, color .22s ease, box-shadow .22s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn--primary { background: var(--sand); color: #fff; box-shadow: 0 10px 24px rgba(157, 102, 52, .25); }
+    .btn--primary:hover { background: var(--sand-dark); }
+    .btn--dark { background: var(--navy); color: var(--white); box-shadow: 0 10px 24px rgba(13, 43, 76, .18); }
+    .btn--dark:hover { background: #061a2d; }
+    .btn--light { background: var(--white); color: var(--navy); box-shadow: 0 12px 28px rgba(0, 0, 0, .14); }
+    .btn--line { border-color: rgba(255,255,255,.55); color: var(--white); background: transparent; }
+    .btn--line:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+    .btn svg { width: 17px; height: 17px; flex: 0 0 auto; }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 80;
+      height: var(--header-h);
+      background: rgba(249, 251, 252, .82);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .site-header.is-scrolled { background: rgba(255,255,255,.94); border-color: var(--line); box-shadow: 0 4px 18px rgba(13,43,76,.06); }
+    .header-inner { min-height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: max-content; }
+    .brand-mark {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--white);
+      background: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-size: .93rem;
+      font-weight: 800;
+      letter-spacing: -.11em;
+    }
+    .brand-mark::before { content: ""; position: absolute; bottom: -7px; right: -5px; width: 31px; height: 31px; border: 3px solid var(--sand); transform: rotate(45deg); opacity: .95; }
+    .brand-mark span { position: relative; z-index: 1; }
+    .brand-text { display: grid; line-height: 1; }
+    .brand-text strong { color: var(--navy); font-family: "Manrope", sans-serif; font-size: 1.02rem; letter-spacing: -.06em; }
+    .brand-text small { margin-top: 4px; color: var(--muted); font-family: "Manrope", sans-serif; font-size: .55rem; font-weight: 800; letter-spacing: .19em; }
+    .main-nav { display: flex; align-items: center; gap: 27px; }
+    .main-nav a { position: relative; color: var(--ink); font-family: "Manrope", sans-serif; font-size: .75rem; font-weight: 800; letter-spacing: .015em; }
+    .main-nav a::after { content:""; position:absolute; left:0; bottom:-8px; width:0; height:2px; background:var(--sand); transition:width .22s ease; }
+    .main-nav a:hover::after, .main-nav a.active::after { width:100%; }
+    .header-cta { min-height: 42px; padding: 0 17px; font-size: .74rem; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 0; border-radius: 10px; background: var(--sky); color: var(--navy); }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { content: ""; display: block; width: 20px; height: 2px; margin: 4px auto; border-radius: 1px; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+    .menu-toggle[aria-expanded="true"] span { opacity: 0; }
+    .menu-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 760px; display: grid; align-items: end; overflow: clip; padding: calc(var(--header-h) + 82px) 0 72px; color: var(--white); background: var(--ink-strong); }
+    .hero__media { position:absolute; inset:0; z-index:0; }
+    .hero__media::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(5,20,33,.94) 0%, rgba(5,20,33,.74) 42%, rgba(5,20,33,.19) 100%), linear-gradient(0deg, rgba(5,20,33,.70), transparent 42%); }
+    .hero__media img { height:100%; object-fit:cover; object-position: 62% center; filter:saturate(.72) contrast(1.04); }
+    .hero__grid { position:absolute; inset:0; z-index:1; pointer-events:none; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 84px 84px; -webkit-mask-image: linear-gradient(90deg, black, transparent 72%); mask-image: linear-gradient(90deg, black, transparent 72%); }
+    .hero .container { position:relative; z-index:2; }
+    .hero-copy { max-width: 830px; }
+    .hero .eyebrow { color:#e6b479; }
+    .hero h1 em { color:#e6b479; font-style:normal; }
+    .hero .lead { margin-top: 25px; max-width: 608px; color: #d2dce5; font-size: 1.1rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:35px; }
+    .hero-features { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:20px; max-width:920px; margin-top:72px; padding-top:24px; border-top:1px solid rgba(255,255,255,.25); }
+    .hero-feature { display:flex; align-items:flex-start; gap:11px; }
+    .hero-feature svg { width:22px; height:22px; color:#e6b479; flex:0 0 auto; }
+    .hero-feature strong { display:block; font-family:"Manrope", sans-serif; font-size:.85rem; font-weight:800; }
+    .hero-feature span { display:block; margin-top:3px; color:#b6c6d2; font-size:.83rem; line-height:1.35; }
+    .hero-stamp { position:absolute; right:5vw; bottom:69px; z-index:2; width:120px; height:120px; padding:14px; border-radius:50%; display:grid; place-items:center; color:var(--white); background:rgba(13,43,76,.9); border:1px solid rgba(255,255,255,.38); transform:rotate(-9deg); }
+    .hero-stamp::before { content:""; position:absolute; inset:7px; border:1px solid rgba(255,255,255,.38); border-radius:50%; }
+    .hero-stamp span { position:relative; text-align:center; font-family:"Manrope",sans-serif; font-size:.62rem; line-height:1.38; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+
+    /* Intro */
+    .intro-grid { display:grid; grid-template-columns: .95fr 1.05fr; gap:72px; align-items:center; }
+    .intro-visual { position:relative; min-height: 526px; }
+    .intro-image { height: 480px; overflow:hidden; border-radius: var(--radius-xl); box-shadow:var(--shadow); }
+    .intro-image img { height:100%; object-fit:cover; filter:saturate(.75); }
+    .intro-card { position:absolute; right:-34px; bottom:0; width:min(320px, 78%); padding:24px; border:1px solid rgba(255,255,255,.8); border-radius:16px; background:rgba(255,255,255,.92); box-shadow:0 18px 42px rgba(7,26,43,.14); backdrop-filter:blur(10px); }
+    .intro-card-icon { width:38px; height:38px; display:grid; place-items:center; border-radius:9px; color:var(--sand-dark); background:#fff4e8; }
+    .intro-card-icon svg { width:21px; height:21px; }
+    .intro-card strong { display:block; margin-top:13px; color:var(--navy); font-family:"Manrope", sans-serif; font-size:1rem; line-height:1.3; }
+    .intro-card p { margin-top:7px; color:var(--muted); font-size:.86rem; line-height:1.45; }
+    .intro-copy .lead { margin-top:19px; }
+    .check-list { display:grid; gap:13px; margin:30px 0 35px; padding:0; list-style:none; }
+    .check-list li { display:flex; align-items:flex-start; gap:11px; font-size:.98rem; }
+    .check-list svg { width:20px; height:20px; margin-top:2px; color:var(--sand-dark); flex:0 0 auto; }
+
+    /* Service cards */
+    .services-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; }
+    .service-card { min-height: 325px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:25px; border-radius:var(--radius-lg); background:var(--navy); color:var(--white); isolation:isolate; }
+    .service-card::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg, rgba(5,20,33,.94), rgba(5,20,33,.14) 75%); }
+    .service-card img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; transition:transform .55s ease; filter:saturate(.62); }
+    .service-card:hover img { transform:scale(1.07); }
+    .service-card .service-number { position:absolute; top:22px; right:22px; color:rgba(255,255,255,.75); font-family:"Manrope",sans-serif; font-size:.7rem; font-weight:800; letter-spacing:.12em; }
+    .service-icon { width:42px; height:42px; display:grid; place-items:center; margin-bottom:auto; border:1px solid rgba(255,255,255,.28); border-radius:50%; color:#f2c18b; background:rgba(255,255,255,.1); }
+    .service-icon svg { width:20px; height:20px; }
+    .service-card h3 { max-width:210px; font-size:1.24rem; }
+    .service-card p { min-height:66px; margin-top:10px; color:#d4e0e9; font-size:.88rem; line-height:1.46; }
+    .service-card a { display:inline-flex; align-items:center; gap:7px; width:max-content; margin-top:16px; color:#fff; font-family:"Manrope",sans-serif; font-size:.75rem; font-weight:800; }
+    .service-card a svg { width:16px; height:16px; transition:transform .2s ease; }
+    .service-card a:hover svg { transform:translateX(4px); }
+
+    /* Value band */
+    .values { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; overflow:hidden; border:1px solid rgba(255,255,255,.13); border-radius:var(--radius-lg); background:rgba(255,255,255,.13); }
+    .value-item { min-height:205px; padding:30px; background:var(--ink-strong); }
+    .value-icon { width:43px; height:43px; display:grid; place-items:center; border-radius:10px; color:#e6b479; background:rgba(230,180,121,.12); }
+    .value-icon svg { width:23px; height:23px; }
+    .value-item h3 { margin-top:21px; font-size:1.08rem; }
+    .value-item p { margin-top:10px; color:#becbd7; font-size:.9rem; line-height:1.52; }
+
+    /* Process */
+    .process-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:0; position:relative; }
+    .process-grid::before { content:""; position:absolute; top:29px; left:13%; right:13%; border-top:1px dashed #b9c8d5; }
+    .process-card { position:relative; padding:0 18px 0 0; }
+    .process-step { position:relative; z-index:1; width:59px; height:59px; display:grid; place-items:center; border-radius:50%; color:var(--navy); background:#fff; border:1px solid #b9c8d5; font-family:"Manrope",sans-serif; font-size:.8rem; font-weight:800; }
+    .process-card h3 { margin-top:22px; font-size:1.06rem; }
+    .process-card p { margin-top:10px; color:var(--muted); font-size:.9rem; line-height:1.53; }
+
+    /* Portfolio */
+    .portfolio-tools { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter-button { padding:8px 13px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:var(--white); font-family:"Manrope",sans-serif; font-size:.72rem; font-weight:800; transition:.2s ease; }
+    .filter-button:hover, .filter-button.is-active { border-color:var(--navy); color:var(--white); background:var(--navy); }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
+    .project { position:relative; min-height:285px; overflow:hidden; border-radius:var(--radius-lg); background:var(--navy); color:#fff; cursor:pointer; }
+    .project:nth-child(1), .project:nth-child(4) { grid-column:span 7; }
+    .project:nth-child(2), .project:nth-child(3) { grid-column:span 5; }
+    .project img { width:100%; height:100%; min-height:285px; object-fit:cover; transition:transform .55s ease; filter:saturate(.7); }
+    .project:hover img { transform:scale(1.06); }
+    .project::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(5,20,33,.94),rgba(5,20,33,.05) 68%); }
+    .project-info { position:absolute; z-index:1; right:23px; bottom:21px; left:23px; display:flex; align-items:end; justify-content:space-between; gap:15px; }
+    .project-meta span { display:block; margin-bottom:7px; color:#e5b77f; font-family:"Manrope",sans-serif; font-size:.62rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .project-meta h3 { font-size:1.23rem; }
+    .project-open { width:39px; height:39px; display:grid; place-items:center; flex:0 0 auto; border:0; border-radius:50%; color:var(--navy); background:#fff; transition:transform .2s ease, background .2s ease; }
+    .project:hover .project-open { transform:rotate(45deg); background:#f2c18b; }
+    .project-open svg { width:18px; height:18px; }
+    .project[hidden] { display:none; }
+
+    /* CTA */
+    .cta-shell { position:relative; overflow:hidden; padding:70px; border-radius:var(--radius-xl); background:var(--navy); color:#fff; }
+    .cta-shell::before, .cta-shell::after { content:""; position:absolute; width:400px; height:400px; border-radius:50%; pointer-events:none; }
+    .cta-shell::before { top:-245px; right:-110px; border:55px solid rgba(230,180,121,.17); }
+    .cta-shell::after { bottom:-285px; left:41%; background:rgba(255,255,255,.04); }
+    .cta-content { position:relative; z-index:1; display:flex; align-items:end; justify-content:space-between; gap:45px; }
+    .cta-content h2 { max-width:670px; }
+    .cta-content .lead { margin-top:18px; }
+    .cta-actions { display:flex; gap:11px; flex-wrap:wrap; min-width:max-content; }
+
+    /* FAQ + Contact */
+    .contact-layout { display:grid; grid-template-columns:.88fr 1.12fr; gap:65px; align-items:start; }
+    .contact-details { display:grid; gap:15px; margin-top:34px; }
+    .contact-detail { display:flex; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid var(--line); }
+    .contact-detail-icon { width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto; border-radius:11px; color:var(--sand-dark); background:#fff1e2; }
+    .contact-detail-icon svg { width:21px; height:21px; }
+    .contact-detail small { display:block; margin-bottom:2px; color:var(--muted); font-size:.75rem; }
+    .contact-detail strong, .contact-detail a { color:var(--navy); font-family:"Manrope",sans-serif; font-size:.89rem; font-weight:800; }
+    .contact-note { margin-top:31px; padding:19px; border-left:3px solid var(--sand); background:#fffaf3; color:#506274; font-size:.88rem; line-height:1.55; }
+    .form-card { padding:31px; border-radius:var(--radius-lg); background:#fff; box-shadow:var(--shadow); }
+    .form-card h3 { color:var(--navy); font-size:1.36rem; }
+    .form-card > p { margin-top:9px; color:var(--muted); font-size:.9rem; }
+    .form-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; margin-top:25px; }
+    .form-field { display:grid; gap:7px; }
+    .form-field--wide { grid-column:span 2; }
+    .form-field label { color:var(--ink); font-family:"Manrope",sans-serif; font-size:.75rem; font-weight:800; }
+    .form-field input, .form-field select, .form-field textarea { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; outline:0; color:var(--ink); background:#fbfcfd; transition:border .2s ease, box-shadow .2s ease, background .2s ease; }
+    .form-field textarea { min-height:120px; resize:vertical; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color:var(--blue); background:#fff; box-shadow:0 0 0 4px rgba(31,95,152,.1); }
+    .form-foot { display:flex; align-items:center; justify-content:space-between; gap:17px; margin-top:20px; }
+    .form-foot small { max-width:285px; color:var(--muted); font-size:.72rem; line-height:1.45; }
+    .form-status { min-height:21px; margin-top:14px; color:var(--success); font-size:.84rem; font-weight:700; }
+
+    .faq { margin-top:87px; }
+    .faq-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px 18px; }
+    .faq-item { border-bottom:1px solid var(--line); }
+    .faq-question { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 0; border:0; text-align:left; color:var(--ink); background:none; font-family:"Manrope",sans-serif; font-size:.93rem; font-weight:800; }
+    .faq-question svg { width:19px; height:19px; flex:0 0 auto; transition:transform .25s ease; }
+    .faq-item.is-open .faq-question svg { transform:rotate(45deg); color:var(--sand-dark); }
+    .faq-answer { display:grid; grid-template-rows:0fr; overflow:hidden; transition:grid-template-rows .28s ease; }
+    .faq-answer > div { min-height:0; }
+    .faq-answer p { padding:0 30px 0 0; color:var(--muted); font-size:.89rem; line-height:1.58; }
+    .faq-item.is-open .faq-answer { grid-template-rows:1fr; }
+    .faq-item.is-open .faq-answer p { padding-bottom:20px; }
+
+    /* Footer */
+    .site-footer { padding:60px 0 25px; color:#d2dce4; background:#071725; }
+    .footer-grid { display:grid; grid-template-columns:1.25fr .85fr .85fr 1.05fr; gap:35px; }
+    .footer-brand .brand-text strong { color:#fff; }
+    .footer-brand .brand-text small { color:#aac0d0; }
+    .footer-brand > p { max-width:300px; margin-top:19px; color:#aebfcd; font-size:.88rem; line-height:1.58; }
+    .footer-title { margin:4px 0 17px; color:#f4f8fb; font-family:"Manrope",sans-serif; font-size:.77rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .footer-links { display:grid; gap:10px; }
+    .footer-links a { width:max-content; color:#aebfcd; font-size:.86rem; transition:color .2s ease; }
+    .footer-links a:hover { color:#f1bd83; }
+    .footer-contact { display:grid; gap:10px; color:#aebfcd; font-size:.86rem; }
+    .footer-contact a:hover { color:#f1bd83; }
+    .footer-bottom { display:flex; justify-content:space-between; gap:22px; margin-top:54px; padding-top:21px; border-top:1px solid rgba(255,255,255,.12); color:#8fa4b4; font-size:.75rem; }
+    .footer-bottom a { text-decoration:underline; text-underline-offset:3px; }
+
+    /* Float */
+    .whatsapp-float { position:fixed; right:22px; bottom:22px; z-index:70; width:55px; height:55px; display:grid; place-items:center; border-radius:50%; color:#fff; background:#1c8d5d; box-shadow:0 11px 26px rgba(7,44,29,.35); transition:transform .22s ease; }
+    .whatsapp-float:hover { transform:translateY(-4px) scale(1.04); }
+    .whatsapp-float svg { width:25px; height:25px; }
+    .whatsapp-float::before { content:"Fale conosco"; position:absolute; right:65px; padding:7px 10px; border-radius:7px; color:#fff; background:#0b2237; font-family:"Manrope",sans-serif; font-size:.68rem; font-weight:800; white-space:nowrap; opacity:0; transform:translateX(5px); pointer-events:none; transition:.2s ease; }
+    .whatsapp-float:hover::before { opacity:1; transform:translateX(0); }
+
+    /* Modal */
+    .modal { position:fixed; inset:0; z-index:100; display:none; place-items:center; padding:22px; background:rgba(3,15,25,.82); }
+    .modal.is-open { display:grid; }
+    .modal-dialog { width:min(865px,100%); max-height:min(700px,calc(100vh - 44px)); overflow:auto; border-radius:18px; background:#fff; box-shadow:0 25px 80px rgba(0,0,0,.35); }
+    .modal-image { height:300px; background:var(--navy); }
+    .modal-image img { height:100%; object-fit:cover; }
+    .modal-body { position:relative; padding:30px; }
+    .modal-close { position:absolute; top:17px; right:17px; width:39px; height:39px; display:grid; place-items:center; border:0; border-radius:50%; color:var(--navy); background:#edf3f7; }
+    .modal-close svg { width:20px; height:20px; }
+    .modal-body .eyebrow { margin-bottom:11px; }
+    .modal-body h2 { max-width:620px; font-size:clamp(1.7rem,3vw,2.5rem); }
+    .modal-body p { max-width:690px; margin-top:14px; color:var(--muted); }
+    .modal-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:21px; }
+    .modal-tags span { padding:6px 9px; border-radius:999px; color:var(--navy); background:var(--sky); font-family:"Manrope",sans-serif; font-size:.68rem; font-weight:800; }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease; }
+    .reveal.is-visible { opacity:1; transform:none; }
+
+    @media (max-width: 1020px) {
+      .main-nav { gap:18px; }
+      .main-nav a { font-size:.7rem; }
+      .services-grid { grid-template-columns:repeat(2,1fr); }
+      .service-card { min-height:280px; }
+      .footer-grid { grid-template-columns:1.3fr 1fr 1fr; }
+      .footer-grid > :last-child { grid-column:span 3; }
+    }
+    @media (max-width: 820px) {
+      :root { --header-h: 72px; --container: min(100% - 32px, 1160px); }
+      .section { padding:78px 0; }
+      .site-header { background:rgba(255,255,255,.94); border-bottom-color:var(--line); }
+      .main-nav { position:absolute; top:calc(100% + 1px); right:0; left:0; display:grid; gap:0; padding:10px 16px 18px; border-bottom:1px solid var(--line); background:#fff; box-shadow:0 15px 28px rgba(13,43,76,.09); transform:translateY(-10px); opacity:0; visibility:hidden; transition:.2s ease; }
+      .main-nav.is-open { transform:translateY(0); opacity:1; visibility:visible; }
+      .main-nav a { padding:14px 4px; font-size:.82rem; }
+      .main-nav a::after { bottom:8px; }
+      .header-cta { display:none; }
+      .menu-toggle { display:block; }
+      .hero { min-height:740px; padding-top:calc(var(--header-h) + 60px); }
+      .hero__media img { object-position:68% center; }
+      .hero-stamp { display:none; }
+      .hero-features { margin-top:50px; }
+      .intro-grid, .contact-layout { grid-template-columns:1fr; gap:44px; }
+      .intro-visual { min-height:450px; }
+      .intro-card { right:0; }
+      .section-head { align-items:start; flex-direction:column; margin-bottom:34px; }
+      .process-grid { grid-template-columns:repeat(2,1fr); gap:35px 26px; }
+      .process-grid::before { display:none; }
+      .cta-shell { padding:48px 36px; }
+      .cta-content { align-items:start; flex-direction:column; gap:29px; }
+      .faq-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 580px) {
+      .section { padding:66px 0; }
+      h1 { font-size:clamp(2.55rem, 13vw, 3.65rem); }
+      .lead, .hero .lead { font-size:1rem; }
+      .hero { min-height: auto; padding-bottom:46px; }
+      .hero__media::after { background:linear-gradient(90deg, rgba(5,20,33,.92), rgba(5,20,33,.67)),linear-gradient(0deg,rgba(5,20,33,.65),transparent); }
+      .hero-features { grid-template-columns:1fr; gap:15px; margin-top:39px; padding-top:20px; }
+      .brand-text strong { font-size:.94rem; }
+      .brand-mark { width:42px; height:42px; }
+      .intro-image { height:390px; }
+      .intro-visual { min-height:420px; }
+      .intro-card { width:88%; padding:20px; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-card { min-height:290px; }
+      .values { grid-template-columns:1fr; }
+      .value-item { min-height:0; }
+      .process-grid { grid-template-columns:1fr; gap:28px; }
+      .process-card { display:grid; grid-template-columns:59px 1fr; column-gap:16px; padding:0; }
+      .process-card h3 { margin-top:4px; }
+      .process-card p { grid-column:2; }
+      .portfolio-grid { display:grid; grid-template-columns:1fr; }
+      .project:nth-child(n) { grid-column:auto; }
+      .project, .project img { min-height:260px; }
+      .cta-shell { padding:37px 24px; }
+      .cta-actions { min-width:0; }
+      .form-card { padding:24px 19px; }
+      .form-grid { grid-template-columns:1fr; }
+      .form-field--wide { grid-column:auto; }
+      .form-foot { align-items:start; flex-direction:column; }
+      .footer-grid, .footer-grid > :last-child { grid-template-columns:1fr; }
+      .footer-grid > :last-child { grid-column:auto; }
+      .footer-bottom { align-items:start; flex-direction:column; margin-top:40px; }
+      .whatsapp-float { right:16px; bottom:16px; width:52px; height:52px; }
+      .whatsapp-float::before { display:none; }
+      .modal { padding:10px; }
+      .modal-image { height:210px; }
+      .modal-body { padding:25px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "EFA Construtora",
+    "description": "Construção, reformas e gerenciamento de obras.",
+    "areaServed": "Araquari e região norte de Santa Catarina",
+    "url": "https://www.seudominio.com.br"
+  }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.1 4.1L19 6.5"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V5l7-3v19"/><path d="M12 21V9l7-2v14"/><path d="M8 8h1M8 12h1M8 16h1M15 11h1M15 15h1"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-3-3z"/><path d="m14 14 6.5 6.5"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 3v5h5V3M3 13h6v8M15 10h6v5h-6z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/><path d="m8.7 12 2.1 2.1 4.6-4.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.8 2 2 0 0 1 3.1 1.6h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7 9.5a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8 8 0 0 1-8.5 8 9.4 9.4 0 0 1-3.8-.8L3 21l1.6-5.1a7.5 7.5 0 0 1-1.1-4 8 8 0 0 1 8.5-8 8 8 0 0 1 9 7.6Z"/><path d="M8.2 11.8h.01M12 11.8h.01M15.8 11.8h.01"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.7A8.5 8.5 0 0 1 8.1 19.3L3 21l1.7-5A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.5-.1.7l-.5.6c-.1.1-.1.3 0 .4.4.8 1.1 1.5 1.9 1.9.1.1.3.1.4 0l.6-.5c.2-.2.4-.2.7-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.4.2-1.2.5-2.1.3-1-.2-2.1-.9-3-1.8s-1.6-2-1.8-3c-.2-.9.1-1.7.3-2.1Z"/></symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="EFA Construtora - início">
+        <span class="brand-mark"><span>EFA</span></span>
+        <span class="brand-text"><strong>EFA</strong><small>CONSTRUTORA</small></span>
+      </a>
+
+      <nav class="main-nav" id="main-navigation" aria-label="Navegação principal">
+        <a class="active" href="#inicio">Início</a>
+        <a href="#empresa">A empresa</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#obras">Obras</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="btn btn--dark header-cta" data-whatsapp="generic" href="#contato">Solicite um orçamento</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="main-navigation" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__media" aria-hidden="true"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2200&q=86" alt=""></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">EFA Construtora · Araquari e região</p>
+          <h1 id="hero-title">Construir bem é transformar <em>planos</em> em lugares para viver e crescer.</h1>
+          <p class="lead">Obras residenciais, comerciais e reformas conduzidas com planejamento, comunicação direta e atenção a cada decisão que impacta o resultado final.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#contato">Solicitar orçamento <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--line" href="#obras">Conhecer soluções</a>
+          </div>
+        </div>
+        <div class="hero-features reveal">
+          <div class="hero-feature"><svg aria-hidden="true"><use href="#i-plan"/></svg><div><strong>Planejamento de obra</strong><span>Escopo, cronograma e decisões bem alinhadas desde o início.</span></div></div>
+          <div class="hero-feature"><svg aria-hidden="true"><use href="#i-eye"/></svg><div><strong>Acompanhamento próximo</strong><span>Visibilidade das etapas e comunicação objetiva em todo o processo.</span></div></div>
+          <div class="hero-feature"><svg aria-hidden="true"><use href="#i-shield"/></svg><div><strong>Execução responsável</strong><span>Critério técnico, organização e cuidado com cada entrega.</span></div></div>
+        </div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span>Obras que<br>fazem sentido</span></div>
+    </section>
+
+    <section class="section" id="empresa" aria-labelledby="empresa-title">
+      <div class="container intro-grid">
+        <div class="intro-visual reveal">
+          <div class="intro-image"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=85" alt="Residência contemporânea ilustrativa"></div>
+          <div class="intro-card">
+            <span class="intro-card-icon"><svg aria-hidden="true"><use href="#i-plan"/></svg></span>
+            <strong>Obra organizada começa antes do canteiro.</strong>
+            <p>Um processo claro reduz ruídos, facilita escolhas e protege o investimento do cliente.</p>
+          </div>
+        </div>
+        <div class="intro-copy reveal">
+          <p class="eyebrow">A empresa</p>
+          <h2 id="empresa-title">Mais clareza para quem quer construir com confiança.</h2>
+          <p class="lead">A EFA Construtora foi estruturada para conduzir obras de forma próxima, técnica e transparente. Nosso foco é transformar a complexidade da construção em uma jornada bem orientada para cada cliente.</p>
+          <ul class="check-list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Entendimento real das necessidades, do imóvel e do objetivo da obra.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Definição de prioridades antes da execução, evitando improvisos desnecessários.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Acompanhamento das entregas com comunicação simples, frequente e objetiva.</span></li>
+          </ul>
+          <a class="btn btn--dark" href="#contato">Falar sobre seu projeto <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="solucoes" aria-labelledby="solucoes-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Soluções</p>
+            <h2 id="solucoes-title">Uma estrutura completa para cada fase da sua obra.</h2>
+            <p class="lead">A contratação pode ser ajustada à necessidade de cada projeto, da construção integral ao acompanhamento de uma reforma ou ampliação.</p>
+          </div>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Casa residencial moderna ilustrativa">
+            <span class="service-number">01</span><span class="service-icon"><svg aria-hidden="true"><use href="#i-home"/></svg></span>
+            <h3>Construção residencial</h3>
+            <p>Casas e espaços planejados para responder à rotina, ao terreno e ao estilo de vida de quem vai ocupar.</p>
+            <a href="#contato">Solicitar conversa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Ambiente corporativo contemporâneo ilustrativo">
+            <span class="service-number">02</span><span class="service-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+            <h3>Obras comerciais</h3>
+            <p>Ambientes que apoiam a operação do negócio e materializam uma experiência consistente para clientes e equipes.</p>
+            <a href="#contato">Solicitar conversa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Profissional em obra ilustrativo">
+            <span class="service-number">03</span><span class="service-icon"><svg aria-hidden="true"><use href="#i-tools"/></svg></span>
+            <h3>Reformas e ampliações</h3>
+            <p>Intervenções pensadas para atualizar, requalificar ou expandir espaços com escopo definido e boa coordenação.</p>
+            <a href="#contato">Solicitar conversa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="service-card reveal">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" alt="Planejamento de obra ilustrativo">
+            <span class="service-number">04</span><span class="service-icon"><svg aria-hidden="true"><use href="#i-plan"/></svg></span>
+            <h3>Gestão de obra</h3>
+            <p>Organização de etapas, fornecedores e informações para que a obra tenha direcionamento e previsibilidade.</p>
+            <a href="#contato">Solicitar conversa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="diferenciais-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Como pensamos</p>
+            <h2 id="diferenciais-title">A melhor obra não depende apenas de material. Depende de método.</h2>
+          </div>
+        </div>
+        <div class="values">
+          <article class="value-item reveal"><span class="value-icon"><svg aria-hidden="true"><use href="#i-eye"/></svg></span><h3>Visibilidade</h3><p>Informações organizadas e alinhamentos recorrentes para o cliente acompanhar o que realmente importa.</p></article>
+          <article class="value-item reveal"><span class="value-icon"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><h3>Ritmo e coordenação</h3><p>Etapas conduzidas com critério, respeitando dependências técnicas e decisões necessárias ao avanço da obra.</p></article>
+          <article class="value-item reveal"><span class="value-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><h3>Responsabilidade</h3><p>Uma condução comprometida com o escopo acordado, a boa execução e a proteção do investimento realizado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="processo" aria-labelledby="processo-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Nosso processo</p>
+            <h2 id="processo-title">Do primeiro contato à entrega, cada passo tem uma função.</h2>
+            <p class="lead">A obra passa a ser mais previsível quando as decisões acontecem no momento certo e as responsabilidades estão claras.</p>
+          </div>
+        </div>
+        <div class="process-grid">
+          <article class="process-card reveal"><span class="process-step">01</span><h3>Conversa inicial</h3><p>Entendemos objetivo, contexto, prazo desejado e o nível de apoio necessário para a sua obra.</p></article>
+          <article class="process-card reveal"><span class="process-step">02</span><h3>Escopo e proposta</h3><p>Organizamos prioridades, definimos a forma de atuação e apresentamos uma proposta compatível com o projeto.</p></article>
+          <article class="process-card reveal"><span class="process-step">03</span><h3>Planejamento</h3><p>Estruturamos etapas, materiais, fornecedores e pontos de decisão antes da execução avançar.</p></article>
+          <article class="process-card reveal"><span class="process-step">04</span><h3>Execução e entrega</h3><p>Acompanhamos o desenvolvimento, mantemos o cliente informado e concluímos a obra com responsabilidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="obras" aria-labelledby="obras-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Portfólio</p>
+            <h2 id="obras-title">Espaço para mostrar obras que carregam a assinatura da EFA.</h2>
+            <p class="lead">Nesta versão, as imagens são ilustrativas. Antes da publicação, substitua cada item por fotografias e informações de obras reais.</p>
+          </div>
+          <div class="portfolio-tools" role="group" aria-label="Filtrar portfólio">
+            <button type="button" class="filter-button is-active" data-filter="all">Todos</button>
+            <button type="button" class="filter-button" data-filter="residencial">Residencial</button>
+            <button type="button" class="filter-button" data-filter="comercial">Comercial</button>
+            <button type="button" class="filter-button" data-filter="reforma">Reformas</button>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <article class="project reveal" data-category="residencial" data-title="Projeto residencial" data-type="Residencial" data-image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85" data-description="Espaço reservado para uma obra residencial real da EFA. Inclua fotos, município, tipo de contratação e os diferenciais da execução.">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=80" alt="Projeto residencial ilustrativo"><div class="project-info"><div class="project-meta"><span>Residencial · Imagem ilustrativa</span><h3>Projeto residencial</h3></div><button class="project-open" type="button" aria-label="Abrir detalhes do projeto residencial"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          </article>
+          <article class="project reveal" data-category="comercial" data-title="Espaço comercial" data-type="Comercial" data-image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85" data-description="Espaço reservado para um case comercial real. Use este card para evidenciar a solução entregue, a necessidade do cliente e o resultado da obra.">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1100&q=80" alt="Espaço comercial ilustrativo"><div class="project-info"><div class="project-meta"><span>Comercial · Imagem ilustrativa</span><h3>Espaço comercial</h3></div><button class="project-open" type="button" aria-label="Abrir detalhes do espaço comercial"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          </article>
+          <article class="project reveal" data-category="reforma" data-title="Reforma e atualização" data-type="Reforma" data-image="https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=1400&q=85" data-description="Espaço reservado para uma reforma ou ampliação real, com um breve antes e depois e a explicação do ganho funcional do imóvel.">
+            <img src="https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=1100&q=80" alt="Ambiente reformado ilustrativo"><div class="project-info"><div class="project-meta"><span>Reforma · Imagem ilustrativa</span><h3>Reforma e atualização</h3></div><button class="project-open" type="button" aria-label="Abrir detalhes da reforma"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          </article>
+          <article class="project reveal" data-category="residencial" data-title="Casa em implantação" data-type="Residencial" data-image="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85" data-description="Espaço reservado para uma obra de casa em implantação. Mostre o partido do projeto, o tipo de construção e os materiais que valorizam a entrega.">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1100&q=80" alt="Casa contemporânea ilustrativa"><div class="project-info"><div class="project-meta"><span>Residencial · Imagem ilustrativa</span><h3>Casa em implantação</h3></div><button class="project-open" type="button" aria-label="Abrir detalhes da casa em implantação"><svg aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Chamada para orçamento">
+      <div class="container">
+        <div class="cta-shell reveal">
+          <div class="cta-content">
+            <div><p class="eyebrow">Seu próximo passo</p><h2>Vamos transformar a sua ideia em uma obra bem conduzida.</h2><p class="lead">Conte o que você pretende construir, reformar ou ampliar. A EFA avalia o contexto e indica o melhor caminho para começar.</p></div>
+            <div class="cta-actions"><a class="btn btn--light" href="#contato">Solicitar orçamento <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn btn--line" data-whatsapp="generic" href="#contato">WhatsApp</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="reveal">
+            <p class="eyebrow">Contato</p>
+            <h2 id="contato-title">Conte o que você quer tirar do papel.</h2>
+            <p class="lead" style="margin-top:18px">Envie uma mensagem com as informações iniciais. O formulário abre uma conversa pré-preenchida no WhatsApp da EFA.</p>
+            <div class="contact-details">
+              <div class="contact-detail"><span class="contact-detail-icon"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>WhatsApp</small><a data-phone href="#">(47) 9 9999-9999</a></div></div>
+              <div class="contact-detail"><span class="contact-detail-icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><div><small>E-mail</small><a data-email href="#">contato@efaconstrutora.com.br</a></div></div>
+              <div class="contact-detail"><span class="contact-detail-icon"><svg aria-hidden="true"><use href="#i-map"/></svg></span><div><small>Atendimento</small><strong data-address>Araquari, SC e região</strong></div></div>
+            </div>
+            <p class="contact-note"><strong>Importante:</strong> substitua o telefone, e-mail, endereço e Instagram pelos dados oficiais antes de publicar. Eles estão centralizados no objeto <strong>CONTACT</strong>, no fim do código.</p>
+          </div>
+
+          <form class="form-card reveal" id="contact-form" novalidate>
+            <h3>Solicite um primeiro contato</h3>
+            <p>Os campos marcados com * ajudam a entender sua necessidade antes da conversa.</p>
+            <div class="form-grid">
+              <div class="form-field"><label for="name">Seu nome *</label><input id="name" name="name" type="text" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
+              <div class="form-field"><label for="phone">Seu WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></div>
+              <div class="form-field"><label for="service">O que você precisa?</label><select id="service" name="service"><option value="">Selecione uma opção</option><option>Construção residencial</option><option>Obra comercial</option><option>Reforma ou ampliação</option><option>Gestão de obra</option><option>Outro</option></select></div>
+              <div class="form-field"><label for="city">Cidade do imóvel</label><input id="city" name="city" type="text" placeholder="Ex.: Araquari"></div>
+              <div class="form-field form-field--wide"><label for="message">Conte um pouco sobre o projeto *</label><textarea id="message" name="message" required placeholder="Ex.: tipo de imóvel, fase atual, dimensão aproximada e o que você espera da obra."></textarea></div>
+            </div>
+            <div class="form-foot"><small>Ao enviar, você será direcionado para o WhatsApp com uma mensagem organizada. Nenhum dado é salvo neste site.</small><button class="btn btn--primary" type="submit">Enviar pelo WhatsApp <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="faq reveal" aria-labelledby="faq-title">
+          <div class="section-head"><div><p class="eyebrow">Dúvidas frequentes</p><h2 id="faq-title">Informações iniciais antes de começar.</h2></div></div>
+          <div class="faq-grid">
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">A EFA atende apenas obras completas?<svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="faq-answer"><div><p>Não necessariamente. A forma de atuação pode ser definida conforme o estágio e a necessidade do projeto, incluindo construção, reforma, ampliação ou gestão de etapas específicas.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">O que preciso ter para solicitar um orçamento?<svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="faq-answer"><div><p>As informações mais úteis são: cidade, tipo de imóvel, objetivo da obra, fase atual, metragem aproximada e prazo desejado. O primeiro contato serve justamente para organizar esse cenário.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">É possível reformar sem interromper totalmente o uso do imóvel?<svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="faq-answer"><div><p>Em muitos casos, sim. Isso depende do escopo, das interferências na estrutura e da logística. A avaliação inicial indica as etapas críticas e as alternativas para reduzir impactos.</p></div></div></article>
+            <article class="faq-item"><button class="faq-question" type="button" aria-expanded="false">Como acompanho o andamento da obra?<svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="faq-answer"><div><p>A dinâmica de acompanhamento é definida na contratação. O princípio é manter registros, alinhamentos e atualizações suficientes para que o cliente acompanhe decisões, etapas e próximos movimentos.</p></div></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="#inicio" aria-label="EFA Construtora - voltar ao início"><span class="brand-mark"><span>EFA</span></span><span class="brand-text"><strong>EFA</strong><small>CONSTRUTORA</small></span></a><p>Construção e gestão de obras com planejamento, transparência e atenção aos detalhes que sustentam boas entregas.</p></div>
+        <div><h3 class="footer-title">Navegação</h3><nav class="footer-links" aria-label="Links do rodapé"><a href="#empresa">A empresa</a><a href="#solucoes">Soluções</a><a href="#processo">Processo</a><a href="#obras">Obras</a></nav></div>
+        <div><h3 class="footer-title">Soluções</h3><div class="footer-links"><a href="#contato">Construção residencial</a><a href="#contato">Obras comerciais</a><a href="#contato">Reformas e ampliações</a><a href="#contato">Gestão de obra</a></div></div>
+        <div><h3 class="footer-title">Contato</h3><div class="footer-contact"><a data-phone href="#">(47) 9 9999-9999</a><a data-email href="#">contato@efaconstrutora.com.br</a><span data-address>Araquari, SC e região</span><a data-instagram href="#" target="_blank" rel="noopener"><svg style="width:15px;height:15px;vertical-align:-3px;margin-right:6px" aria-hidden="true"><use href="#i-instagram"/></svg><span data-instagram-label>@efaconstrutora</span></a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> EFA Construtora. Todos os direitos reservados.</span><span>Desenvolvido com estrutura responsiva e acessível.</span></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp="generic" href="#contato" aria-label="Falar com a EFA Construtora pelo WhatsApp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-image"><img id="modal-image" src="" alt=""></div>
+      <div class="modal-body"><button class="modal-close" type="button" aria-label="Fechar detalhes"><svg aria-hidden="true"><use href="#i-close"/></svg></button><p class="eyebrow" id="modal-type">Projeto</p><h2 id="modal-title">Projeto</h2><p id="modal-description"></p><div class="modal-tags"><span>Imagem ilustrativa</span><span>Substituir antes da publicação</span></div></div>
+    </div>
+  </div>
+
+  <script>
+    /* ============================
+       DADOS EDITÁVEIS DA EMPRESA
+       ============================ */
+    const CONTACT = {
+      // Informe somente números, com DDI e DDD. Exemplo: 5547999999999
+      whatsapp: '5547999999999',
+      phoneDisplay: '(47) 9 9999-9999',
+      email: 'contato@efaconstrutora.com.br',
+      address: 'Araquari, SC e região',
+      instagram: 'https://instagram.com/efaconstrutora',
+      instagramLabel: '@efaconstrutora'
+    };
+
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+
+    function whatsappUrl(message) {
+      return `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
+    }
+
+    // Preenche telefone, e-mail, Instagram e links de WhatsApp usando CONTACT.
+    $$('[data-phone]').forEach(el => { el.textContent = CONTACT.phoneDisplay; el.href = `tel:${CONTACT.whatsapp}`; });
+    $$('[data-email]').forEach(el => { el.textContent = CONTACT.email; el.href = `mailto:${CONTACT.email}`; });
+    $$('[data-address]').forEach(el => { el.textContent = CONTACT.address; });
+    $$('[data-instagram]').forEach(el => { el.href = CONTACT.instagram; });
+    $$('[data-instagram-label]').forEach(el => { el.textContent = CONTACT.instagramLabel; });
+    $$('[data-whatsapp="generic"]').forEach(el => {
+      el.href = whatsappUrl('Olá! Gostaria de conversar sobre uma obra com a EFA Construtora.');
+      el.target = '_blank';
+      el.rel = 'noopener';
+    });
+
+    // Cabeçalho e menu móvel.
+    const header = $('.site-header');
+    const menuToggle = $('#menu-toggle');
+    const mainNav = $('#main-navigation');
+    const setHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+    setHeader();
+    window.addEventListener('scroll', setHeader, { passive: true });
+
+    function closeMenu() {
+      mainNav.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.classList.remove('menu-open');
+    }
+    menuToggle.addEventListener('click', () => {
+      const willOpen = !mainNav.classList.contains('is-open');
+      mainNav.classList.toggle('is-open', willOpen);
+      menuToggle.setAttribute('aria-expanded', String(willOpen));
+      menuToggle.setAttribute('aria-label', willOpen ? 'Fechar menu' : 'Abrir menu');
+      document.body.classList.toggle('menu-open', willOpen);
+    });
+    $$('#main-navigation a').forEach(link => link.addEventListener('click', closeMenu));
+
+    // Destaque do menu conforme seção visível.
+    const navLinks = $$('#main-navigation a');
+    const sections = $$('main section[id]');
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-40% 0px -54% 0px', threshold: 0 });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Animação de revelação discreta.
+    const revealItems = $$('.reveal');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      revealItems.forEach(item => item.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      revealItems.forEach(item => revealObserver.observe(item));
+    }
+
+    // Filtro de portfólio.
+    const filterButtons = $$('.filter-button');
+    const projects = $$('.project');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(btn => btn.classList.toggle('is-active', btn === button));
+        projects.forEach(project => {
+          const show = filter === 'all' || project.dataset.category === filter;
+          project.hidden = !show;
+        });
+      });
+    });
+
+    // Modal de portfólio.
+    const modal = $('#project-modal');
+    const modalImage = $('#modal-image');
+    const modalType = $('#modal-type');
+    const modalTitle = $('#modal-title');
+    const modalDescription = $('#modal-description');
+    const modalClose = $('.modal-close', modal);
+    let lastFocus = null;
+    function openModal(project) {
+      lastFocus = document.activeElement;
+      modalImage.src = project.dataset.image;
+      modalImage.alt = project.querySelector('img').alt;
+      modalType.textContent = `${project.dataset.type} · portfólio`;
+      modalTitle.textContent = project.dataset.title;
+      modalDescription.textContent = project.dataset.description;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      modalClose.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      if (lastFocus) lastFocus.focus();
+    }
+    projects.forEach(project => {
+      project.addEventListener('click', event => {
+        if (event.target.closest('.project-open') || event.target === project || event.target.closest('.project-info') || event.target.tagName === 'IMG') openModal(project);
+      });
+      project.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openModal(project); } });
+      project.setAttribute('tabindex', '0');
+      project.setAttribute('role', 'button');
+    });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+
+    // FAQ em acordeão.
+    $$('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+        $$('.faq-item').forEach(other => { other.classList.remove('is-open'); $('.faq-question', other).setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('is-open'); button.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+
+    // Máscara básica de telefone.
+    const phoneInput = $('#phone');
+    phoneInput.addEventListener('input', () => {
+      let digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+      if (digits.length > 6) phoneInput.value = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+      else if (digits.length > 2) phoneInput.value = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+      else if (digits.length) phoneInput.value = `(${digits}`;
+    });
+
+    // Formulário: gera mensagem e abre o WhatsApp configurado.
+    const form = $('#contact-form');
+    const formStatus = $('#form-status');
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const name = $('#name').value.trim();
+      const phone = $('#phone').value.trim();
+      const service = $('#service').value.trim() || 'Não informado';
+      const city = $('#city').value.trim() || 'Não informada';
+      const message = $('#message').value.trim();
+      if (!name || !phone || !message) {
+        formStatus.textContent = 'Preencha seu nome, WhatsApp e uma breve descrição do projeto.';
+        formStatus.style.color = '#b33b33';
+        const firstInvalid = !name ? $('#name') : (!phone ? $('#phone') : $('#message'));
+        firstInvalid.focus();
+        return;
+      }
+      formStatus.textContent = 'Abrindo uma conversa no WhatsApp...';
+      formStatus.style.color = 'var(--success)';
+      const text = `Olá, EFA Construtora!\n\n` +
+        `Meu nome é ${name}.\n` +
+        `Meu WhatsApp: ${phone}.\n` +
+        `Serviço de interesse: ${service}.\n` +
+        `Cidade do imóvel: ${city}.\n\n` +
+        `Sobre o projeto:\n${message}`;
+      window.open(whatsappUrl(text), '_blank', 'noopener');
+    });
+
+    $('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
